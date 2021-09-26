@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="samplescript.js" defer></script>
+</head>
+
+
+<body>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        main {
+            height: 92%;
+        }
+
+        body {
+            background-color: #2D848A;
+        }
+
+        .menu-payment {
+            background: #C1DFF0;
+            flex-grow: 1;
+            z-index: 0;
+        }
+
+        .menu {
+            flex-flow: row wrap;
+            grid-column: 1;
+            grid-row: 1;
+            align-content: flex-start;
+            z-index: 0;
+            height: 100%;
+            overflow: auto;
+        }
+
+        .menu-item {
+            flex-flow: column nowrap;
+            flex-basis: auto;
+            flex-shrink: 0;
+            margin: 10px;
+            background: #3587A4;
+            width: 150px;
+        }
+
+        .menu-img {
+            border-radius: 50%;
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: auto;
+        }
+
+        figcaption {
+            color: white;
+            text-align: center;
+            user-select: none;
+        }
+
+        .menu-item:hover>.menu-img {
+            transform: scale(1.03);
+        }
+
+        #payment-overlay {
+            grid-column: 1;
+            grid-row: 1;
+            grid-template-columns: 330px;
+            width: 100%;
+            height: 100%;
+            z-index: 9;
+            background: rgba(255, 255, 255, .05);
+        }
+
+        .paypad {
+            margin: 120px 0 0 10px;
+            align-content: center;
+            grid-column: 1;
+            grid-template-columns: repeat(3, 100px);
+            grid-template-rows: repeat(5, 100px);
+        }
+
+        #quantity-overlay {
+            grid-column: 1;
+            grid-row: 1;
+            grid-template-columns: 330px;
+            width: 100%;
+            height: 100%;
+            z-index: 9;
+            background: rgba(255, 255, 255, .05);
+        }
+
+        .quantitypad {
+            margin: 120px 0 0 10px;
+            align-content: center;
+            grid-column: 1;
+            grid-template-columns: repeat(3, 100px);
+            grid-template-rows: repeat(5, 100px);
+        }
+
+        .span3-col {
+            grid-column: span 3;
+        }
+
+        .span2-col {
+            grid-column: span 2;
+        }
+
+
+        #close-sale {
+            display: none;
+        }
+
+        .paypad-btn.number {
+            font-size: 2rem;
+        }
+
+        .quantity-btn.number {
+            font-size: 2rem;
+        }
+
+        .quantity-btn {
+            font-size: 1.5rem;
+            align-content: center;
+        }
+
+        .paypad-btn {
+            font-size: 1.5rem;
+            align-content: center;
+        }
+
+        .close-icon {
+            color: black;
+            font-size: 4rem;
+            bottom: 550px;
+            position: relative;
+            margin: 10px 0 0 320px;
+        }
+
+
+        .close-icon:hover {
+            transform: scale(1.03);
+        }
+
+        .close-icon2 {
+            color: black;
+            font-size: 4rem;
+            bottom: 510px;
+            position: relative;
+            margin: 20px 0 0 340px;
+        }
+    </style>
+    <section class="menu-payment grid">
+        <div class="quantity grid" id="quantity-overlay">
+            <div class="quantity grid" id="quantitypad"> <button class="quantity-btn number" data-id="7">7</button>
+                <button class="quantity-btn number" data-id="8">8</button>
+                <button class="quantity-btn number" data-id="9">9</button>
+                <button class="quantity-btn number" data-id="4">4</button>
+                <button class="quantity-btn number" data-id="5">5</button>
+                <button class="quantity-btn number" data-id="6">6</button>
+                <button class="quantity-btn number" data-id="1">1</button>
+                <button class="quantity-btn number" data-id="2">2</button>
+                <button class="quantity-btn number" data-id="3">3</button>
+                <button class="quantity-btn number" data-id="0">0</button>
+                <button class="quantity-btn span2-col" Grid.ColumnSpan="2" data-id="back">Clear</button>
+                <button class="quantity-btn span3-col" data-id="delete">Delete</button>
+
+            </div>
+            <div class="close-paypad flex">
+                <i class="fas fa-times close-icon2 paypad-close" id="quantitypad-close"></i>
+            </div>
+        </div>
+    </section>
+    <input type="text" name="list elements" id="inputs">
+    <button class="output" onclick="displayItem()">Add Item</button>
+    <ul id="list">
+
+    </ul>
+</body>
+
+</html>
